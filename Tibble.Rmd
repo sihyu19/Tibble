@@ -1,0 +1,61 @@
+---
+title: "Tibble"
+author: "siyu"
+date: "2023-02-17"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+tibble(
+  `:)`="smile",
+  ` `= "space",
+  `2000`="number"
+)
+
+tribble(
+  ~x,~y,~z,
+  "a", 1, 2,
+  "b", 3, 4
+)
+```
+
+```{r}
+nycflights13::flights %>% 
+  print(n = 15, width = Inf)
+```
+
+```{r}
+package?tibble
+```
+
+```{r}
+df<- tibble(
+  x=runif(5),
+  y=rnorm(5)
+)
+
+df$x
+```
+
+10.5 hw
+
+1. 
+a regular data frame shows all the entries when printed, while tibble only shows the first 10 rows. Tibble also shows the number of each row and the size of the table. 
+```{r}
+mtcars
+as_tibble(mtcars)
+```
+
+2. 
+```{r}
+df <- data.frame(abc = 1, xyz = "a")
+df$x
+df[, "xyz"]
+df[, c("abc", "xyz")]
+
+tb <- tibble(abc=1, xyz="a")
+tb$x
+tb[, "xyz"]
+tb[, c("abc", "xyz")]
+```
