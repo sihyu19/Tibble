@@ -59,3 +59,42 @@ tb$x
 tb[, "xyz"]
 tb[, c("abc", "xyz")]
 ```
+
+3. 
+double brackets [["n"]]
+
+4. 
+```{r}
+annoying <- tibble(
+  `1` = 1:10,
+  `2` = `1` * 2 + rnorm(length(`1`))
+)
+
+#1
+annoying[["1"]]
+
+#2
+ggplot(annoying, aes(x=`1`, y=`2`))+
+  geom_point()
+
+#3
+mutate(annoying, `3`=`2`/`1`)
+
+#4
+rename(annoying, one = `1`, two = `2`)
+```
+
+5. 
+In R, "enframe() converts named atomic vectors or lists to one- or two-column data frames" (R for Data Science).
+
+```{r}
+tibble::enframe(1:2)
+tibble::enframe(c(a=1, b=2, c=4))
+```
+
+6. 
+I am not sure which one determines the extra columns. 
+
+```{r}
+?print
+```
